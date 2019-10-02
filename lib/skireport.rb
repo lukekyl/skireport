@@ -1,6 +1,2 @@
-require "skireport/version"
-
-module Skireport
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require_relative "./skireport/version"
+require_relative './cli'

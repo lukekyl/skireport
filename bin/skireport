@@ -1,0 +1,3 @@
+#!/usr/bin/env ruby
+require './lib/skireport'
+SkiReport::CLI.new.call
