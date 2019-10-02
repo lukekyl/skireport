@@ -1,6 +1,6 @@
 RSpec.describe Skireport do
   it "has a version number" do
-    expect(Skireport::VERSION).not_to be nil
+    expect(SkiReport::VERSION).not_to be nil
   end
 
   it "does something useful" do

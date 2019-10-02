@@ -1,3 +1,6 @@
 #!/usr/bin/env ruby
-require './lib/skireport'
+
+require "bundler/setup"
+require "skireport"
+
 SkiReport::CLI.new.call

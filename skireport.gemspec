@@ -5,7 +5,7 @@ require "skireport/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "skireport"
-  spec.version       = Skireport::VERSION
+  spec.version       = SkiReport::VERSION
   spec.authors       = ["'Kyle Luke'"]
   spec.email         = ["'th.oldschool@gmail.com'"]
 
@@ -20,7 +20,7 @@ Gem::Specification.new do |spec|
 
     spec.metadata["homepage_uri"] = spec.homepage
     spec.metadata["source_code_uri"] = "https://github.com/lukekyl/skireport"
-    spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
+    spec.metadata["changelog_uri"] = "https://github.com/lukekyl/skireport/blob/master/CHANGELOG.md"
   else
     raise "RubyGems 2.0 or newer is required to protect against " \
       "public gem pushes."
