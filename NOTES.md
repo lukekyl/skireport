@@ -32,8 +32,9 @@ Which ski resort do you want to check on conditions?
 
 Ski Conditions at:
 Beaver Creek Ski Resort
+Current Weather is 49 f and Sunny
 Todays High - 53 f
-Sky Looks - Sunny
+Todays Low - 30 f
 Chance of Precip. - 0%
 Snow Depth - 1 in
 Tomorrows High - 50 f
