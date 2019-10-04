@@ -49,52 +49,59 @@ def site_link(input)
     when "1"
       name = "Aspen"
       link =  "https://www.wunderground.com/weather/us/co/aspen/81611"
-      puts "#{name} link is #{link}"
     when "2"
       name = "Beaver Creek"
       link = "https://www.wunderground.com/weather/us/co/avon/KCOAVON21"
-      puts "#{name} link is #{link}"
     when "3"
       name = "Breckenridge"
       link = "https://www.wunderground.com/weather/us/co/breckenridge/KCOBRECK63"
-      puts "#{name} link is #{link}"
     when "4"
       name = "Copper Mountain"
       link = "https://www.wunderground.com/weather/us/co/copper-mountain/80443"
-      puts "#{name} link is #{link}"
     when "5"
       name = "Crested Butte"
       link = "https://www.wunderground.com/weather/us/co/crested-butte/81224"
-      puts "#{name} link is #{link}"
     when "6"
       name = "Keystone"
       link = "https://www.wunderground.com/weather/us/co/dillon/KCODILLO40"
-      puts "#{name} link is #{link}"
     when "7"
       name = "Steamboat Springs"
       link = "https://www.wunderground.com/weather/us/co/steamboat-springs/80487"
-      puts "#{name} link is #{link}"
     when "8"
       name = "Telluride"
       link = "https://www.wunderground.com/weather/us/co/telluride/81435"
-      puts "#{name} link is #{link}"
     when "9"
       name = "Vail"
       link = "https://www.wunderground.com/weather/us/co/vail/81657"
-      puts "#{name} link is #{link}"
     when "10"
       name = "Winter Park"
       link = "https://www.wunderground.com/weather/us/co/winter-park/80482"
-      puts "#{name} link is #{link}"
   end
-  get_resort(name,link)
-  link
+  print_conditions(name,link)
+  puts <<-DOC
+
+  For a closer look at the weather in #{name}, follow this link:
+  #{link}
+
+  (Type list to for your options again, and exit to quit.)
+  DOC
+end
+
+def print_conditions(name,link)
+  resort = get_resort(name, link)
+  puts <<-DOC
+  #{resort.name} Ski Resort:
+  Current Weather is #{resort.current}°f and #{resort.condition}
+  Todays High - #{resort.high}°f
+  Todays Low - #{resort.low}°f
+  Snow Depth - #{resort.snow} inches
+  DOC
 end
 
 def get_resort(name, link)
   resort = SkiReport::Resort.new(name)
   resort.scrape_conditions(link)
-  p resort
+  resort
 end
 
 end
