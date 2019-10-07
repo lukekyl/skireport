@@ -25,7 +25,7 @@ def list_resorts
 end
 
 def menu
-  puts "Which ski resort's conditions would you like to check? (Type list to see your options again, and exit to quit.)"
+  puts "Which ski resort's conditions would you like to check? (Type list to see your resort options again, and exit to quit.)"
   input = nil
   while input != "exit"
     input = gets.strip.downcase
@@ -83,7 +83,7 @@ def site_link(input)
   For a closer look at the weather in #{name}, follow this link:
   #{link}
 
-  (Type list to for your options again, and exit to quit.)
+  (Type list to see your resort options again, and exit to quit.)
   DOC
 end
 
