@@ -28,7 +28,8 @@ class SkiReport::Resort
     self.high = doc.css("span.hi").text.gsub("°","")
     self.low = doc.css("span.lo").text.gsub("°","")
     self.condition = doc.css("div.conditions-extra div.condition-icon p").text
-    self.snow = doc.css("span.wu-unit-snow span.wu-value-to").first.text
+    snow_report = doc.xpath('//*[@type="snow"]')
+    self.snow = snow_report.css("span.wu-unit-snow span.wu-value-to").text
     #binding.pry
   end
 
