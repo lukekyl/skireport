@@ -1,6 +1,7 @@
 class SkiReport::Resort
   attr_accessor :name, :current, :high, :low, :condition, :snow
   @@all = []
+
   # Ski Conditions at:
   # Beaver Creek Ski Resort
   # Current Weather is 49 f and Sunny
@@ -9,6 +10,7 @@ class SkiReport::Resort
   # Chance of Precip. - 0%
   # Snow Depth - 1 in
   # Tomorrows High - 50 f
+
   def initialize(name)
     @name = name
     save
@@ -22,11 +24,12 @@ class SkiReport::Resort
 
   def scrape_conditions(link)
     doc = Nokogiri::HTML(open(link))
-    self.current = doc.search("div.current-temp span.wu-value").text
-    self.high = doc.search("span.hi").text.gsub("°","")
-    self.low = doc.search("span.lo").text.gsub("°","")
-    self.condition = doc.search("div.conditions-extra div.condition-icon p").text
-    self.snow = doc.search("span.wu-unit-snow span.wu-value-to").text
+    self.current = doc.css("div.current-temp span.wu-value").text
+    self.high = doc.css("span.hi").text.gsub("°","")
+    self.low = doc.css("span.lo").text.gsub("°","")
+    self.condition = doc.css("div.conditions-extra div.condition-icon p").text
+    self.snow = doc.css("span.wu-unit-snow span.wu-value-to").first.text
+    #binding.pry
   end
 
 end

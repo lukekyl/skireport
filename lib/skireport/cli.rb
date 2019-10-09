@@ -27,17 +27,21 @@ end
 def menu
   puts "Which ski resort's conditions would you like to check? (Type list to see your resort options again, and exit to quit.)"
   input = nil
-  while input != "exit"
+  while input != -1
     input = gets.strip.downcase
     if input == "list"
-        list_resorts
-    elsif input.to_i >= 0 && input.to_i <= 10
-        site_link(input)
+      list_resorts
+    elsif input == "exit"
+      input = -1
+    elsif input.to_i > 0 && input.to_i <= 10
+      site_link(input)
     else
       puts "Please type a valid resort number, list, or exit."
     end
+    input
   end
 end
+
 
 def goodbye
   puts "Thanks for using the Ski Conditions Reporter!"
@@ -51,7 +55,7 @@ def site_link(input)
       link =  "https://www.wunderground.com/weather/us/co/aspen/81611"
     when "2"
       name = "Beaver Creek"
-      link = "https://www.wunderground.com/weather/us/co/avon/KCOAVON21"
+      link = "https://www.wunderground.com/weather/us/co/avon/KCOAVON27"
     when "3"
       name = "Breckenridge"
       link = "https://www.wunderground.com/weather/us/co/breckenridge/KCOBRECK63"
