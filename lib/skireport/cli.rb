@@ -10,18 +10,10 @@ end
 
 def list_resorts
   puts "Available ski resorts include:"
-  puts <<-DOC
-    1. Aspen
-    2. Beaver Creek
-    3. Breckenridge
-    4. Copper Mountain
-    5. Crested Butte
-    6. Keystone
-    7. Steamboat Springs
-    8. Telluride
-    9. Vail
-    10. Winter Park
-  DOC
+  resorts = SkiReport::Links.getlink
+  resorts.each_with_index{|resort, index|
+    puts "#{index}. #{resort[:name]}" if index > 0
+  }
 end
 
 def menu
@@ -49,38 +41,9 @@ def goodbye
 end
 
 def site_link(input)
-  case input
-    when "1"
-      name = "Aspen"
-      link =  "https://www.wunderground.com/weather/us/co/aspen/81611"
-    when "2"
-      name = "Beaver Creek"
-      link = "https://www.wunderground.com/weather/us/co/avon/KCOAVON27"
-    when "3"
-      name = "Breckenridge"
-      link = "https://www.wunderground.com/weather/us/co/breckenridge/KCOBRECK63"
-    when "4"
-      name = "Copper Mountain"
-      link = "https://www.wunderground.com/weather/us/co/copper-mountain/80443"
-    when "5"
-      name = "Crested Butte"
-      link = "https://www.wunderground.com/weather/us/co/crested-butte/81224"
-    when "6"
-      name = "Keystone"
-      link = "https://www.wunderground.com/weather/us/co/dillon/KCODILLO40"
-    when "7"
-      name = "Steamboat Springs"
-      link = "https://www.wunderground.com/weather/us/co/steamboat-springs/80487"
-    when "8"
-      name = "Telluride"
-      link = "https://www.wunderground.com/weather/us/co/telluride/81435"
-    when "9"
-      name = "Vail"
-      link = "https://www.wunderground.com/weather/us/co/vail/81657"
-    when "10"
-      name = "Winter Park"
-      link = "https://www.wunderground.com/weather/us/co/winter-park/80482"
-  end
+  resort_array = SkiReport::Links.getlink
+  name = resort_array[input.to_i][:name]
+  link = resort_array[input.to_i][:link]
   print_conditions(name,link)
   puts <<-DOC
 
@@ -95,6 +58,7 @@ def print_conditions(name,link)
   resort = get_resort(name, link)
   puts <<-DOC
   #{resort.name} Ski Resort:
+
   Current Weather is #{resort.current}°f and #{resort.condition}
   Todays High - #{resort.high}°f
   Todays Low - #{resort.low}°f
