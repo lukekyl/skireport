@@ -36,8 +36,11 @@ end
 
 
 def goodbye
-  puts "Thanks for using the Ski Conditions Reporter!"
-  puts "Check back again tomorrow for updated resort conditions, Goodbye."
+  puts <<-DOC
+
+  Thanks for using the Ski Conditions Reporter!
+  Check back again tomorrow for updated resort conditions, Goodbye.
+  DOC
 end
 
 def site_link(input)
