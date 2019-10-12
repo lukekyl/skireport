@@ -1,14 +1,31 @@
 # Skireport
 
-Helllo World
+Welcome to the Ski Conditions Reporter CLI Program!
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/skireport`. To experiment with that code, run `bin/console` for an interactive prompt.
+After installation, this ruby gem will allow you to see the current weather and snow conditions at your favorite ski resort!
 
-TODO: Delete this and the text above, and describe your gem
+To run the gem, you will first have to move into the correct directory (skireport):
+type "cd skireport"
+
+To install the gem bundle:
+type "bundle install"
+
+To then run the program:
+type ./bin/skireport
+
+Follow the prompts to use the program, and enjoy!
 
 ## Installation
 
-Add this line to your application's Gemfile:
+For use in the Command Line Interface:
+
+To run the gem, you will first have to move into the correct directory (skireport):
+type "cd skireport"
+
+To install the gem bundle:
+type "bundle install"
+
+<!-- Add this line to your application's Gemfile:
 
 ```ruby
 gem 'skireport'
@@ -20,11 +37,14 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install skireport
+    $ gem install skireport -->
 
 ## Usage
 
-TODO: Write usage instructions here
+To then run the program:
+type ./bin/skireport
+
+Follow the prompts to use the program, and enjoy!
 
 ## Development
 
@@ -33,6 +53,8 @@ After checking out the repo, run `bin/setup` to install dependencies. Then, run 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 ## Contributing
+
+Main author and contributor is Kyle Luke, who at the time of creation is a student at the Flatirons School attending the Online Software Engineering course.
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/'exuberant-constructor-7383'/skireport. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
