@@ -27,7 +27,10 @@ class SkiReport::CLI
     }
   end
   def menu
-    puts "Which ski resort's conditions would you like to check? (Type list to see your resort options again, and exit to quit.)"
+    puts <<-DOC
+
+    Which ski resort's conditions would you like to check? (Type list to see your resort options again, and exit to quit.)
+    DOC
     input = nil
     while input != -1
       input = gets.strip.downcase
@@ -38,7 +41,10 @@ class SkiReport::CLI
       elsif input.to_i > 0 && input.to_i <= SkiReport::Resort.all.count
         site_link(input)
       else
-        puts "Please type a valid resort number, list, or exit."
+        puts <<-DOC
+        
+        Please type a valid resort number, list, or exit.
+        DOC
       end
       input
     end
