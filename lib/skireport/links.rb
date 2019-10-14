@@ -1,5 +1,4 @@
 class SkiReport::Links
-
   def self.getlink
     [
       {name: "Aspen", link: "https://www.wunderground.com/weather/us/co/aspen/81611"},
@@ -14,5 +13,4 @@ class SkiReport::Links
       {name: "Winter Park", link: "https://www.wunderground.com/weather/us/co/winter-park/80482"},
     ]
   end
-
 end
