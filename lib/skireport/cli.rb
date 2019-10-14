@@ -3,16 +3,23 @@ class SkiReport::CLI
 def call
   puts "Welcome to the Ski Conditions Reporter!"
   puts "Use this program to find current conditions at your favorite resort."
+  create_list
   list_resorts
   menu
   goodbye
 end
 
+def create_list
+  resorts = SkiReport::Links.getlink.map do |resort_hash|
+    #binding.pry
+    SkiReport::Resort.new(resort_hash[:name], resort_hash[:link])
+  end
+end
 def list_resorts
   puts "Available ski resorts include:"
-  resorts = SkiReport::Links.getlink
-  resorts.each_with_index{|resort, index|
-    puts "#{index}. #{resort[:name]}" if index > 0
+
+  SkiReport::Resort.all.each_with_index{|resort, index|
+    puts "#{index + 1}. #{resort.name}"
   }
 end
 
@@ -25,7 +32,7 @@ def menu
       list_resorts
     elsif input == "exit"
       input = -1
-    elsif input.to_i > 0 && input.to_i <= 10
+    elsif input.to_i > 0 && input.to_i <= SkiReport::Resort.all.count
       site_link(input)
     else
       puts "Please type a valid resort number, list, or exit."
@@ -70,8 +77,15 @@ def print_conditions(name,link)
 end
 
 def get_resort(name, link)
-  resort = SkiReport::Resort.new(name)
-  resort.scrape_conditions(link)
+
+  resort = SkiReport::Resort.find_by_name(name)
+  resort.scrape_conditions
+
+
+
+  #resort = SkiReport::Resort.new(name)
+
+  #resort.scrape_conditions(link)
   resort
 end
 
